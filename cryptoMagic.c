@@ -53,11 +53,7 @@ int main(int argc, char *argv[]){
         //adds .txt extension if one was not given
         else{
             char filename[strlen(fileNameBase)+5];
-            
-            int i;
-            for (i = 0; i < strlen(fileNameBase); i++)
-                filename[i]=fileNameBase[i];
-            
+            strcpy(filename, fileNameBase);
             strcat(filename, ".txt\0");
 
             encrypt(fileNameBase, filename);
@@ -105,11 +101,7 @@ int main(int argc, char *argv[]){
         //adds .txt extension if one was not given
         else{
             char filename[strlen(fileNameBase)+5];
-            
-            int i;
-            for (i = 0; i < strlen(fileNameBase); i++)
-                filename[i]=fileNameBase[i];
-            
+            strcpy(filename, fileNameBase);
             strcat(filename, ".txt\0");
 
             encrypt(fileNameBase, filename);
@@ -144,19 +136,15 @@ int main(int argc, char *argv[]){
         //adds eos operator to base name
         fileNameBase[fileNameLen]='\0';
 
-        //calls encryption function using argv[2] if it has an extension
+        //calls decryption function using argv[2] if it has an extension
         if (hasExt == 1){
             decrypt(fileNameBase, argv[2]);
         }
         
-        //adds .txt extension if one was not given
+        //adds .crp extension if one was not given
         else{
             char filename[strlen(fileNameBase)+5];
-            
-            int i;
-            for (i = 0; i < strlen(fileNameBase); i++)
-                filename[i]=fileNameBase[i];
-            
+            strcpy(filename, fileNameBase);
             strcat(filename, ".crp\0");
 
             decrypt(fileNameBase, filename);
